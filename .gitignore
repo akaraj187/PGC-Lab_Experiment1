@@ -1,0 +1,15 @@
+# Executables
+*.o
+*.out
+matrix_sequential
+matrix_openmp
+matrix_mpi
+matrix_cuda
+
+# Windows WSL metadata
+*:Zone.Identifier
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
