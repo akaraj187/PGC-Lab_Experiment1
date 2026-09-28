@@ -554,7 +554,12 @@ The table below synthesizes the complete experimental results for the $4000 \tim
 | **Open MPI** | Distributed Cluster | 4 VM Nodes (1 Master + 3 Workers) | **226.167575 s** | **1.61×** | 40.20% | 0.566 GFLOPS | `4000.00` |
 | **NVIDIA CUDA** | Massively Parallel GPU | 16M GPU Threads (62.5k Blocks) | **0.165004 s** *(Kernel: 0.146 s)* | **2203.84×** | — | **775.74 GFLOPS** | `4000.00` |
 
-### 2. Paradigm Progression Workflow
+### 2. Graphical Performance Comparison
+The benchmark graph below illustrates the execution time comparison (logarithmic scaling) alongside the speedup factors and computing throughput across all four paradigms:
+
+![Performance Comparison Graph](screenshots/performance_comparison.png)
+
+### 3. Paradigm Progression Workflow
 All four experimental milestones have been executed and verified:
 
 ```mermaid
@@ -564,7 +569,7 @@ flowchart LR
     C --> D["Part D: NVIDIA CUDA<br>0.165 s (2203.84x)"]
 ```
 
-### 3. In-Depth Comparative Discussion
+### 4. In-Depth Comparative Discussion
 
 ```text
 Execution Time Comparison (Logarithmic Scale):
@@ -595,7 +600,8 @@ PGC-Lab/
 │   ├── 01fe24bci081_OpenMP.png                                   # Part B: OpenMP execution terminal output
 │   ├── 01fe24bci081_OpenMP_htop.png                              # Part B: htop showing 16 cores at 100%
 │   ├── mpi_ping.png                                              # Part C: Multi-VM cluster ping connectivity check
-│   └── mpi_result.png                                            # Part C: MPI 4-VM execution output (226.17 s)
+│   ├── mpi_result.png                                            # Part C: MPI 4-VM execution output (226.17 s)
+│   └── performance_comparison.png                                # 4-Paradigm benchmark comparison graph
 └── src/
     ├── sequential/
     │   └── matrix_sequential.c                                   # Sequential C implementation
