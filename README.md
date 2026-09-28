@@ -1,4 +1,4 @@
-# Parallel and Distributed Computing (PGC) Lab
+# Parallel and GPU Computing (PGC) Lab
 ## Experiment 1: Matrix Multiplication using Sequential, OpenMP, MPI, and CUDA
 
 **Student USN / Roll Number:** `01FE24BCI081`  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 Executive Summary & Progress Tracker
+## Executive Summary & Progress Tracker
 
 This repository documents the comprehensive experimental analysis for **Experiment 1: Parallel Matrix Multiplication ($4000 \times 4000$)** comparing four core computing paradigms:
 1. **Sequential CPU Execution** *(Baseline)*
@@ -17,14 +17,14 @@ This repository documents the comprehensive experimental analysis for **Experime
 
 | Part | Paradigm | Model | Status | Threads / Nodes | Execution Time | Speedup | Verification $C[0][0]$ |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Part A** | **Sequential** | Single-core CPU Baseline | **COMPLETED** ✅ | 1 Core | **363.642678 s** | **1.00×** | `4000.00` |
-| **Part B** | **OpenMP** | Shared-Memory Multi-core | **COMPLETED** ✅ | 16 Threads | **96.381304 s** | **3.77×** | `4000.00` |
-| **Part C** | **Open MPI** | Distributed-Memory Cluster | **COMPLETED** ✅ | 4 VMs / Ranks | **226.167575 s** | **1.61×** | `4000.00` |
-| **Part D** | **CUDA** | GPU Hardware Acceleration | **COMPLETED** ✅ | 16M GPU Threads | **0.165004 s** *(Kernel: 0.146443 s)* | **2203.84×** | `4000.00` |
+| **Part A** | **Sequential** | Single-core CPU Baseline | COMPLETED | 1 Core | **363.642678 s** | **1.00×** | `4000.00` |
+| **Part B** | **OpenMP** | Shared-Memory Multi-core | COMPLETED | 16 Threads | **96.381304 s** | **3.77×** | `4000.00` |
+| **Part C** | **Open MPI** | Distributed-Memory Cluster | COMPLETED | 4 VMs / Ranks | **226.167575 s** | **1.61×** | `4000.00` |
+| **Part D** | **CUDA** | GPU Hardware Acceleration | COMPLETED | 16M GPU Threads | **0.165004 s** *(Kernel: 0.146443 s)* | **2203.84×** | `4000.00` |
 
 ---
 
-## 📐 Problem Definition & Mathematical Formulation
+## Problem Definition & Mathematical Formulation
 
 Matrix multiplication of two square dense matrices $A, B \in \mathbb{R}^{N \times N}$ yielding matrix $C \in \mathbb{R}^{N \times N}$:
 
@@ -47,7 +47,7 @@ Every implementation must strictly produce $C[0][0] = 4000.00$ to confirm numeri
 
 ---
 
-## 💻 Hardware & Operating Environment
+## Hardware & Operating Environment
  
 * **Host System:** Windows 11 with WSL2 (Windows Subsystem for Linux)
 * **Linux Distribution:** Ubuntu (WSL2 & VMware Workstation guest environments)
@@ -67,7 +67,7 @@ Every implementation must strictly produce $C[0][0] = 4000.00$ to confirm numeri
 
 ---
 
-## 🧪 Part A: Sequential Matrix Multiplication (Completed)
+## Part A: Sequential Matrix Multiplication (Completed)
 
 ### 1. Methodology & Theoretical Foundation
 The sequential implementation serves as the unparallelized benchmark. It executes on a single CPU core using three nested loops:
@@ -141,7 +141,7 @@ Verification C[0][0] = 4000.00
 
 ---
 
-## ⚡ Part B: OpenMP Shared-Memory Parallelism (Completed)
+## Part B: OpenMP Shared-Memory Parallelism (Completed)
 
 ### 1. Methodology & Theoretical Foundation
 OpenMP leverages multi-core symmetric multiprocessing (SMP) using the **Fork-Join execution model**:
@@ -231,7 +231,7 @@ During runtime, process monitoring via `htop` verified that all **16 logical CPU
 
 ---
 
-## 🌐 Part C: Open MPI Distributed-Memory Computing (Completed)
+## Part C: Open MPI Distributed-Memory Computing (Completed)
 
 ### 1. Methodology & Theoretical Foundation
 The Message Passing Interface (MPI) implements distributed-memory parallelism based on the **Single Program, Multiple Data (SPMD)** model across independent virtual machines:
@@ -397,7 +397,7 @@ While MPI provides a **1.61× speedup** over the sequential CPU baseline, it exe
 
 ---
 
-## 🚀 Part D: NVIDIA CUDA GPU Acceleration (Completed)
+## Part D: NVIDIA CUDA GPU Acceleration (Completed)
 
 ### 1. Methodology & Massive GPU SIMT Architecture
 NVIDIA CUDA exploits the **Single Instruction, Multiple Threads (SIMT)** execution paradigm on dedicated GPU hardware:
@@ -542,7 +542,7 @@ CUDA achieves transformative performance over all CPU paradigms:
 
 ---
 
-## 📊 Comprehensive 4-Paradigm Performance & Speedup Analysis
+## Comprehensive 4-Paradigm Performance & Speedup Analysis
 
 ### 1. Comparative Performance Matrix
 The table below synthesizes the complete experimental results for the $4000 \times 4000$ matrix multiplication across all four computational models:
@@ -559,9 +559,9 @@ All four experimental milestones have been executed and verified:
 
 ```mermaid
 flowchart LR
-    A["Part A: Sequential CPU<br>363.64 s (1.00x) ✅"] --> B["Part B: OpenMP 16 Cores<br>96.38 s (3.77x) ✅"]
-    B --> C["Part C: Open MPI 4 VMs<br>226.17 s (1.61x) ✅"]
-    C --> D["Part D: NVIDIA CUDA<br>0.165 s (2203.84x) ✅"]
+    A["Part A: Sequential CPU<br>363.64 s (1.00x)"] --> B["Part B: OpenMP 16 Cores<br>96.38 s (3.77x)"]
+    B --> C["Part C: Open MPI 4 VMs<br>226.17 s (1.61x)"]
+    C --> D["Part D: NVIDIA CUDA<br>0.165 s (2203.84x)"]
 ```
 
 ### 3. In-Depth Comparative Discussion
@@ -583,7 +583,7 @@ NVIDIA CUDA      : [.] 0.165 s  (<-- 2,203x faster than Sequential)
 
 ---
 
-## 📂 Repository File Structure
+## Repository File Structure
 
 ```text
 PGC-Lab/
@@ -609,7 +609,7 @@ PGC-Lab/
 
 ---
 
-## 🛠️ Step-by-Step Instructions to Reproduce
+## Step-by-Step Instructions to Reproduce
 
 ### 1. Prerequisites
 Ensure GCC, build tools, Open MPI, and the CUDA Toolkit are installed:
@@ -659,7 +659,7 @@ nvcc -O2 matrix_cuda.cu -o matrix_cuda
 
 ---
 
-## 📖 References & Citations
+## References & Citations
 1. **Lab Manual Reference:** *Experiment 1: Parallel Matrix Multiplication Lab Manual Reference Format*, Department of Computer Science & Engineering.
 2. OpenMP Architecture Review Board, *OpenMP Application Programming Interface*, Specification Version 5.0/5.2.
 3. Gropp, W., Lusk, E., & Skjellum, A., *Using MPI: Portable Parallel Programming with the Message-Passing Interface*, 3rd Edition, MIT Press.
