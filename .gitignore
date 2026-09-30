@@ -13,3 +13,8 @@ matrix_cuda
 *.tmp
 *.log
 .DS_Store
+agy.txt
+
+# Separate repositories
+MultithreadPrograms/
+
